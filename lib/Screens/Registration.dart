@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emergancy/Screens/Login.dart';
 import 'package:emergancy/Screens/verfiy.dart';
 import 'package:flutter/material.dart';
 import 'package:emergancy/toast.dart';
@@ -116,6 +117,28 @@ class _RegistrationState extends State<Registration> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 40,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login(),
+                  ),
+                );
+              },
+              child: Container(
+                child: Text(
+                  "Already have an account",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
