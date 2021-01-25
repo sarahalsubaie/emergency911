@@ -96,6 +96,7 @@ class _RegistrationState extends State<Registration> {
                         MaterialPageRoute(
                           builder: (context) => Verfiy(
                             phoneNumber: phoneNumber.text,
+                            idNumber: idNumber.text,
                           ),
                         ),
                       );

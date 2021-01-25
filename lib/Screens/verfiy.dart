@@ -11,8 +11,8 @@ import 'package:emergancy/toast.dart';
 
 class Verfiy extends StatefulWidget {
   final String phoneNumber;
-
-  const Verfiy({Key key, this.phoneNumber}) : super(key: key);
+  final String idNumber;
+  const Verfiy({Key key, this.phoneNumber, this.idNumber}) : super(key: key);
   @override
   _VerfiyState createState() => _VerfiyState();
 }
@@ -121,8 +121,8 @@ class _VerfiyState extends State<Verfiy> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ServicesList(),
-                      ),
+                          builder: (context) =>
+                              ServicesList(id: widget.idNumber)),
                     );
                   } else {
                     errorMsg(context, "Code error");

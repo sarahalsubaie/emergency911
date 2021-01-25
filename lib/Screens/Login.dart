@@ -56,7 +56,7 @@ class _LoginState extends State<Login> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ServicesList(),
+                        builder: (context) => ServicesList(id: idNumber.text),
                       ),
                     );
                   } else {
