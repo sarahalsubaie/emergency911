@@ -1,3 +1,4 @@
+import 'package:emergancy/Screens/chatbot.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -36,28 +37,39 @@ class ServicesList extends StatelessWidget {
               FaIcon(
                 FontAwesomeIcons.fireExtinguisher,
                 size: 40,
-              )),
+              ),
+              context),
           Divider(),
           listTail(
               "Police Department",
               FaIcon(
                 FontAwesomeIcons.hardHat,
                 size: 40,
-              )),
+              ),
+              context),
           Divider(),
           listTail(
               "Medical Emergency",
               FaIcon(
                 FontAwesomeIcons.clinicMedical,
                 size: 40,
-              )),
+              ),
+              context),
         ],
       ),
     );
   }
 
-  Widget listTail(text, icon) {
+  Widget listTail(text, icon, context) {
     return ListTile(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Chatbot(dep: text),
+          ),
+        );
+      },
       title: Text(
         text,
         style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
