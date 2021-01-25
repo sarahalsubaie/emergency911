@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
+import 'package:emergancy/toast.dart';
 
 class Registration extends StatefulWidget {
   final String lang;
@@ -61,12 +61,37 @@ class _RegistrationState extends State<Registration> {
             ),
             InkWell(
               onTap: () async {
+                bool thereIsID = false;
+
                 if (fName.text.isEmpty ||
                     lName.text.isEmpty ||
                     idNumber.text.isEmpty ||
                     phoneNumber.text.isEmpty) {
-                  Toast.show("Toast plugin app", context,
-                      duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+                  errorMsg(context, "Must fill rquirments");
+                } else {
+                  if (!checkedValue) {
+                    errorMsg(context, "Please, agree the terms & conditions");
+                    return;
+                  }
+                  await FirebaseFirestore.instance
+                      .collection('users')
+                      .where('idNumber', isEqualTo: idNumber.text)
+                      .get()
+                      .then((value) => value.docs.forEach((element) {
+                            setState(() {
+                              thereIsID = true;
+                            });
+                          }));
+                  if (!thereIsID) {
+                    await FirebaseFirestore.instance.collection('users').add({
+                      'firstName': fName.text,
+                      'lastName': lName.text,
+                      'idNumber': idNumber.text,
+                      'phoneNumber': phoneNumber.text,
+                    });
+                  } else {
+                    errorMsg(context, "ID used");
+                  }
                 }
               },
               child: Container(
