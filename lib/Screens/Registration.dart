@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emergancy/Screens/verfiy.dart';
 import 'package:flutter/material.dart';
 import 'package:emergancy/toast.dart';
 
@@ -88,6 +89,15 @@ class _RegistrationState extends State<Registration> {
                       'lastName': lName.text,
                       'idNumber': idNumber.text,
                       'phoneNumber': phoneNumber.text,
+                    }).whenComplete(() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Verfiy(
+                            phoneNumber: phoneNumber.text,
+                          ),
+                        ),
+                      );
                     });
                   } else {
                     errorMsg(context, "ID used");

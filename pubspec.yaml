@@ -33,6 +33,9 @@ dependencies:
   cloud_firestore: ^0.16.0
   firebase: ^8.0.0
   toast: ^0.1.5
+  twilio_flutter: ^0.0.5
+  uuid: ^2.2.2
+  pinput: ^1.0.0
 
 dev_dependencies:
   flutter_test:
