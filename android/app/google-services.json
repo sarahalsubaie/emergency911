@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "243274972889",
+    "project_id": "emergency911-39ce4",
+    "storage_bucket": "emergency911-39ce4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243274972889:android:450c7fb330032548f748c8",
+        "android_client_info": {
+          "package_name": "project.emergency.sarah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243274972889-9ibr23625otcfd6hthc5jhv18jq2htia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqch4a8XX9c7UvVaNzdBIjfngqliI6Fuc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243274972889-9ibr23625otcfd6hthc5jhv18jq2htia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
