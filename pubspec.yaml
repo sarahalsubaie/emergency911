@@ -36,7 +36,7 @@ dependencies:
   twilio_flutter: ^0.0.5
   uuid: ^2.2.2
   pinput: ^1.0.0
-  font_awesome: ^5.10.1
+  font_awesome_flutter: ^8.11.0
 
 dev_dependencies:
   flutter_test:

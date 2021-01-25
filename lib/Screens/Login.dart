@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emergancy/Screens/Registration.dart';
+import 'package:emergancy/Screens/ServicesList.dart';
 import 'package:emergancy/toast.dart';
 import 'package:flutter/material.dart';
 
@@ -39,12 +41,27 @@ class _LoginState extends State<Login> {
               ),
               InkWell(
                 onTap: () async {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => null,
-                    ),
-                  );
+                  bool isRegestered = false;
+                  await FirebaseFirestore.instance
+                      .collection('users')
+                      .where('firstName', isEqualTo: fName.text)
+                      .where('idNumber', isEqualTo: idNumber.text)
+                      .get()
+                      .then((value) => value.docs.forEach((e) {
+                            setState(() {
+                              isRegestered = true;
+                            });
+                          }));
+                  if (isRegestered) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ServicesList(),
+                      ),
+                    );
+                  } else {
+                    errorMsg(context, "Do not match our data");
+                  }
                 },
                 child: Container(
                   height: 50,

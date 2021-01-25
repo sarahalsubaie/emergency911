@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emergancy/Screens/ServicesList.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pin_put/pin_put.dart';
@@ -117,6 +118,12 @@ class _VerfiyState extends State<Verfiy> {
                 onTap: () async {
                   if (_pinPutController.text == codeID) {
                     succMsg(context, 'Verified');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ServicesList(),
+                      ),
+                    );
                   } else {
                     errorMsg(context, "Code error");
                   }
